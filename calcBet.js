@@ -19,14 +19,6 @@ module.exports = function calculateBet(gameState) {
   var averageCardValue = cardValue / cards.length;
   console.log(TAG, 'average card value', averageCardValue);
   var handValue = handEvaluator.evaluate(gameState);
-  if(handValue < valueMap.HAND.HASQUEENORHIGHER) {
-    if(math.random() < 0.05) {
-      return bluff(gameState);
-    }
-    else {
-      return 0;
-    }
-  }
 
-  return averageCardValue > 9 ? gameState.pot : (averageCardValue < 2 && Math.random(1) < 2) ? bluff(gameState) : gameState.current_buy_in;
+  return handValue >= valueMap.HAND.HASQUEENORHIGHER ? gameState.pot : 0;
 };

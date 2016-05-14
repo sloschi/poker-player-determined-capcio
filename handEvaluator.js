@@ -1,4 +1,5 @@
 var valueMap = require('./valuemap.js');
+var humanVariation = 1;
 
 module.exports = {
     evaluate: function (gameState) {

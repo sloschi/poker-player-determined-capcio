@@ -11,7 +11,7 @@ module.exports = {
 
   bet_request: function (game_state, bet) {
     try {
-      bet(calculateBet(game_state.players[game_state.in_action].hole_cards, game_state.community_cards));
+      bet(calculateBet(game_state));
     } catch (error) {
       console.error('error occurred fix it and redeploy, playing random now', error);
       if (Math.random(1) > 0.5) {

@@ -2,15 +2,15 @@
 module.exports = {
 
     HAND: {
-        highCard: 0.1,
-        pair: 0.2,
-        twoPair: 0.3,
-        threeOfAKind: 0.4,
-        straight: 0.5,
-        flush: 0.6,
-        fullHouse: 0.7,
-        straightFlush: 0.8,
-        royalFlush: 1
+        HIGHCARD: 0.1,
+        PAIR: 0.2,
+        TWO: 0.3,
+        THREEOFAKIND: 0.4,
+        STRAIGHT: 0.5,
+        FLUSH: 0.6,
+        FULLHOUSE: 0.7,
+        STRAIGHTFLUSH: 0.8,
+        ROYALFLUSH: 1
     },
 
     CARD: {

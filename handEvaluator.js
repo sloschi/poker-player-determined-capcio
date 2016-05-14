@@ -1,4 +1,5 @@
 var valueMap = require('./valuemap.js');
+var TAG = require('./TAG');
 var humanVariation = 1;
 
 module.exports = {
@@ -53,6 +54,7 @@ module.exports = {
         Object.keys(rankCounts).forEach(function (rankKey) {
             var count = rankCounts[rankKey];
             if (count === 2) {
+                console.log(TAG.Player, 'found pair', rankKey)
                 pairCount++;
             }
             

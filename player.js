@@ -1,7 +1,7 @@
 var TAG = 'CAPCIO';
 
 var valueMap = require('./valuemap');
-var calculateBet = require('./valuemap');
+var calculateBet = require('./calcBet');
 
 
 module.exports = {

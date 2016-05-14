@@ -182,7 +182,7 @@ new Promise(function (resolve, reject) {
     player.bet_request(badGameState, function (betValue) {
         console.log('bet result', betValue);
         resolve(5);
-    })
+    });
 }).then(function (betValue) {
     betValue.should.equal(5);
 });

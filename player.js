@@ -9,7 +9,7 @@ function calculateBet(gameState) {
   var cards = holeCards.concat(communityCards);
   
   var cardValue = cards.reduce(function (prev, next) {
-    return prev + valueMap.CARD[next];
+    return prev + valueMap.CARD[next.rank];
   }, 0);
 
   var averageCardValue = cardValue / cards.length;
@@ -36,6 +36,6 @@ module.exports = {
   },
 
   showdown: function (game_state) {
-
+     console.log(TAG, 'showdown', game_state)
   }
 };

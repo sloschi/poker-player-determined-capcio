@@ -6,7 +6,7 @@ module.exports = {
   VERSION: "never surrender",
 
   bet_request: function (game_state, bet) {
-    console.log(TAG, 'got bet request', game_state);
+    console.log(TAG, 'got bet request');
     try {
       bet(calculateBet(game_state));
     } catch (error) {
@@ -21,6 +21,6 @@ module.exports = {
   },
 
   showdown: function (game_state) {
-    console.log(TAG, 'showdown', game_state);
+    console.log(TAG, 'showdown');
   }
 };

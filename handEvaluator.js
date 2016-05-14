@@ -38,9 +38,16 @@ module.exports = {
         
         // pair evaluation
         var pairCount = 0;
-        var hasSet = false;
-        var hasQuads = false;
+        
+        var isRoyalFlush = false;
+        var isStraightFlush = false;
+        var isQuads = false;
+        var isFullHouse = false;
+        var isFlush = false;
         var isStraight = false;
+        var isThreeOfAKind = false;
+        var isTwoPair = false;
+        var isPair = false;
         var isQueenOrHigher = false;
         
         Object.keys(rankCounts).forEach(function (rankKey) {
@@ -50,38 +57,17 @@ module.exports = {
             }
             
             if (count === 3) {
-                hasSet = true;
+                isThreeOfAKind = true;
             }
             
             if (count === 4) {
-                hasQuads = true;              
+                isQuads = true;              
             }
         });
         
-        var handValue = valueMap.HAND.HIGHCARD;
-        
-        if (pairCount === 1 && hasSet) {
-            // full house
-            handValue = valueMap.HAND.FULLHOUSE;
-        }
-        
-        if (pairCount === 2) {
-            // two pair
-            handValue = valueMap.HAND.TWO;
-        }
-        
-        if (pairCount === 1) {
-            // pair
-            handValue = valueMap.HAND.PAIR;
-        }
-        
-        if (hasSet) {
-            handValue = valueMap.HAND.THREEOFAKIND;
-        }
-        
-        if (hasQuads) {
-            handValue = valueMap.HAND.QUADS;
-        }
+        isFullHouse = pairCount === 1 && isThreeOfAKind;
+        isTwoPair = pairCount === 2;
+        isPair = pairCount === 1;
         
         holeCards.forEach(function (card) {
             if (card.rank === 'Q' || card.rank === 'K' || card.rank === 'A') {
@@ -89,8 +75,42 @@ module.exports = {
             }
         });
         
-        if (isQueenOrHigher) {
-            handValue = valueMap.HAND.HASQUEENORHIGHER;
+        Object.keys(suitCounts).forEach(function (suitKey) {
+            if (suitCounts[suitKey] === 5) {
+                isFlush = true;
+            }
+        });
+        
+        var orderedCards = cards.map(function (card) {
+            return valueMap.CARD[card.rank];
+        }).sort(function (a, b) { return a > b; });
+        
+        var tmpStraight = true;
+        orderedCards.reduce(function (prevCard, nextCard) {
+            if (tmpStraight) {
+                tmpStraight = nextCard === prevCard + 1;          
+            }
+        }, orderedCards[0]);
+        
+        isStraight = tmpStraight;
+        
+        isStraightFlush = isFlush && isStraight;
+        
+        var handValue = valueMap.HAND.HIGHCARD;
+        
+        switch (true) {
+            case isRoyalFlush:
+            case isStraightFlush: handValue = valueMap.HAND.STRAIGHTFLUSH; break;
+            case isQuads: handValue = valueMap.HAND.QUADS; break;
+            case isFullHouse: handValue = valueMap.HAND.FULLHOUSE; break;
+            case isFlush: handValue = valueMap.HAND.FLUSH; break;
+            case isStraight: handValue = valueMap.HAND.STRAIGHT; break;
+            case isThreeOfAKind: handValue = valueMap.HAND.THREEOFAKIND; break;
+            case isTwoPair: handValue = valueMap.HAND.TWO; break;
+            case isPair: handValue = valueMap.HAND.PAIR; break;
+            case isQueenOrHigher: handValue = valueMap.HAND.HASQUEENORHIGHER; break;
+            default:
+            break;
         }
         
         return handValue * roundMultiplier;

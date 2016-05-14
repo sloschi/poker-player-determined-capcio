@@ -9,6 +9,7 @@ module.exports = {
         STRAIGHT: 0.5,
         FLUSH: 0.6,
         FULLHOUSE: 0.7,
+        QUADS: 0.75,
         STRAIGHTFLUSH: 0.8,
         ROYALFLUSH: 1
     },

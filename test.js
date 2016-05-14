@@ -117,3 +117,6 @@ new Promise(function (resolve, reject) {
 });
 
 player.showdown(showDowngameState);
+
+
+console.log('bot did not crash, tests passed');

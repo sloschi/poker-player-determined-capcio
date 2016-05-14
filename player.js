@@ -1,4 +1,4 @@
-const valueMap = require('valuemap');
+const valueMap = require('./valuemap');
 
 function calculateBet(gameState) {
   let ownCards = gameState.players[gameState.in_action].hole_cards;

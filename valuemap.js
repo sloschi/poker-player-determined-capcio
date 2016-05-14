@@ -12,7 +12,11 @@ module.exports = {
         FULLHOUSE: 0.7,
         QUADS: 0.75,
         STRAIGHTFLUSH: 0.8,
-        ROYALFLUSH: 1
+        ROYALFLUSH: 1,
+
+        FLUSHDRAW: 1,
+        STRAIGHTDRAW: 1,
+        GUTSHOTSTRAIGHTDRAW: 1
     },
 
     ROUNDMULTIPLIER: {

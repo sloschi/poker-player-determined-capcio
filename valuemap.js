@@ -3,7 +3,9 @@ module.exports = {
     
     LIMITS: {
         FOLD: 0.3,
-        PLAY: 0.9,
+        MEHPLAY: 0.4,
+        PLAY: 0.7,
+        TRIBET: 0.9,
         YOLO: 1
     },
 

@@ -1,5 +1,11 @@
 
 module.exports = {
+    
+    LIMITS: {
+        FOLD: 0.3,
+        PLAY: 0.9,
+        YOLO: 1
+    },
 
     HAND: {
         HIGHCARD: 0,

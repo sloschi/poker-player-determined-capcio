@@ -20,5 +20,5 @@ module.exports = function calculateBet(gameState) {
   console.log(TAG, 'average card value', averageCardValue);
   var handValue = handEvaluator.evaluate(gameState);
 
-  return handValue >= valueMap.HAND.HASQUEENORHIGHER ? gameState.pot : 0;
+  return handValue >= valueMap.LIMITS.FOLD ? gameState.pot : 0;
 };

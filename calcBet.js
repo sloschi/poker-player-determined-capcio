@@ -1,5 +1,5 @@
 var TAG = require('./TAG');
-var valueMap = require('./valueMap');
+var valueMap = require('./valuemap');
 var bluff = require('./bluff');
 var handEvaluator = require('./handEvaluator');
 
@@ -10,7 +10,7 @@ module.exports = function calculateBet(gameState) {
   var communityCards = gameState.community_cards;
   console.log(TAG, 'communityCards', communityCards);
   var cards = holeCards.concat(communityCards);
-  console.log(TAG, 'cards', cards)
+  console.log(TAG, 'cards', cards);
   var cardValue = cards.reduce(function (prev, next) {
     console.log(TAG, 'card', next);
     return prev + valueMap.CARD[next.rank];

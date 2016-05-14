@@ -1,4 +1,4 @@
-var TAG = 'CAPCIO';
+var TAG = require('./TAG');
 
 var calculateBet = require('./calcBet');
 

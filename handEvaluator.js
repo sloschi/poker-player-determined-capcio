@@ -1,5 +1,5 @@
 var valueMap = require('./valuemap.js');
-
+var TAG = require('./TAG');
 module.exports = {
     evaluate: function (gameState) {
         var holeCards = gameState.players[gameState.in_action].hole_cards;

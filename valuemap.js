@@ -14,18 +14,18 @@ module.exports = {
     },
 
     CARD: {
-        TWO: 1,
-        THREE: 2,
-        FOUR: 3,
-        FIVE: 4,
-        SIX: 5,
-        SEVEN: 6,
-        EIGHT: 7,
-        NINE: 9,
-        TEN: 10,
-        JACK: 11,
-        QUEEN: 12,
-        KING: 13,
-        ACE: 14
+        2: 1,
+        3: 2,
+        4: 3,
+        5: 4,
+        6: 5,
+        7: 6,
+        8: 7,
+        9: 9,
+        10: 10,
+        J: 11,
+        Q: 12,
+        K: 13,
+        A: 14
     }
 };

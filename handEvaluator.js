@@ -30,6 +30,8 @@ module.exports = {
         var pairCount = 0;
         var hasSet = false;
         var hasQuads = false;
+        var isStraight = false;
+        var isQueenOrHigher = false;
         
         Object.keys(rankCounts).forEach(function (rankKey) {
             var count = rankCounts[rankKey];
@@ -68,5 +70,17 @@ module.exports = {
         if (hasQuads) {
             return valueMap.HAND.QUADS;
         }
+        
+        holeCards.forEach(function (card) {
+            if (card.rank === 'Q' || card.rank === 'K' || card.rank === 'A') {
+                isQueenOrHigher = true;
+            }
+        });
+        
+        if (isQueenOrHigher) {
+            return valueMap.HAND.HASQUEENORHIGHER;
+        }
+        
+        return valueMap.HAND.HIGHCARD;
     }
 };

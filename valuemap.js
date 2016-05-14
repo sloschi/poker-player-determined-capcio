@@ -3,7 +3,7 @@ module.exports = {
 
     HAND: {
         HIGHCARD: 0.1,
-        HASQUEENORHIGHER: 0.1,
+        HASQUEENORHIGHER: 0.15,
         PAIR: 0.2,
         TWO: 0.3,
         THREEOFAKIND: 0.4,

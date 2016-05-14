@@ -14,7 +14,10 @@ var showDowngameState = {
         stack: 0,
         status: 'out',
         bet: 0,
-        hole_cards: [Object],
+        hole_cards: [
+            { rank: '8', suit: 'clubs' },
+            { rank: 'K', suit: 'clubs' }
+        ],
         version: 'never surrender',
         id: 0
     },
@@ -122,11 +125,11 @@ var badGameState = {
         hole_cards: [
             {
                 rank: 2,
-                suite: 'spades'
+                suit: 'spades'
             },
             {
                 rank: 3,
-                suite: 'hearts'
+                suit: 'hearts'
             }
         ],
         version: 'never surrender',
@@ -163,11 +166,11 @@ var badGameState = {
     community_cards: [
         {
             rank: 2,
-            suite: 'spades'
+            suit: 'spades'
         },
         {
             rank: 2,
-            suite: 'hearts'
+            suit: 'hearts'
         }
     ],
     current_buy_in: 1000,

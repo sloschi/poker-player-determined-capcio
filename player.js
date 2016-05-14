@@ -1,8 +1,6 @@
 var TAG = 'CAPCIO';
 
-var valueMap = require('./valuemap');
 var calculateBet = require('./calcBet');
-
 
 module.exports = {
   VERSION: "never surrender",
@@ -23,6 +21,6 @@ module.exports = {
   },
 
   showdown: function (game_state) {
-     console.log(TAG, 'showdown', game_state);
+    console.log(TAG, 'showdown', game_state);
   }
 };

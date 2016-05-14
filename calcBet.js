@@ -1,3 +1,5 @@
+var valueMap = require('./valueMap');
+
 module.exports = function calculateBet(gameState) {
   var holeCards = gameState.players[gameState.in_action].hole_cards;
   var communityCards = gameState.community_cards;

@@ -1,6 +1,8 @@
 var chai = require('chai');
 var Promise = require('promise-polyfill');
 var player = require('./player');
+var calculateBet = require('./calcBet');
+
 
 var showDowngameState = {
     tournament_id: '56fa32da3fe8b10003000003',
@@ -115,6 +117,10 @@ new Promise(function (resolve, reject) {
 }).then(function (betValue) {
     betValue.should.equal(5);
 });
+
+var betValue = calculateBet(initialGameState);
+console.log('betvalue ', betValue);
+
 
 player.showdown(showDowngameState);
 

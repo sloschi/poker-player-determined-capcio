@@ -1,3 +1,5 @@
+const valueMap = require('valuemap');
+
 function calculateBet(gameState) {
   let ownCards = gameState.players[gameState.in_action].hole_cards;
   let communityCards = gameState.community_cards;

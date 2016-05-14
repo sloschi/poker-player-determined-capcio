@@ -3,16 +3,16 @@ module.exports = {
 
     HAND: {
         HIGHCARD: 0.1,
-        HASQUEENORHIGHER: 0.15,
-        PAIR: 0.2,
-        TWO: 0.3,
-        THREEOFAKIND: 0.4,
-        STRAIGHT: 0.5,
-        FLUSH: 0.6,
-        FULLHOUSE: 0.7,
-        QUADS: 0.75,
-        STRAIGHTFLUSH: 0.8,
-        ROYALFLUSH: 1,
+        HASQUEENORHIGHER: 0.0875,
+        PAIR: 0.125,
+        TWO: 0.27,
+        THREEOFAKIND: 0.28,
+        STRAIGHT: 0.29,
+        FLUSH: 0.310,
+        FULLHOUSE: 0.311,
+        QUADS: 0.312,
+        STRAIGHTFLUSH: 0.313,
+        ROYALFLUSH: 0.318,
 
         FLUSHDRAW: 1,
         STRAIGHTDRAW: 1,
@@ -20,10 +20,10 @@ module.exports = {
     },
 
     ROUNDMULTIPLIER: {
-        PREFLOP: 4,
-        FLOP: 3,
-        TURN: 2,
-        RIVER: 1
+        PREFLOP: 8,
+        FLOP: Math.PI,
+        TURN: 3,
+        RIVER: 2.7
     },
 
     CARD: {

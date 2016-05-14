@@ -7,6 +7,15 @@ module.exports = {
         var communityCards = gameState.community_cards;
         var cards = holeCards.concat(communityCards);
         
+        var multiplierMap = {
+            2: valueMap.ROUNDMULTIPLIER.PREFLOP,
+            5: valueMap.ROUNDMULTIPLIER.FLOP,
+            6: valueMap.ROUNDMULTIPLIER.TURN,
+            7: valueMap.ROUNDMULTIPLIER.RIVER
+        }
+        
+        var roundMultiplier = multiplierMap[cards.length];
+        
         var rankCounts = {};
         
         cards.forEach(function (card) {
@@ -49,27 +58,29 @@ module.exports = {
             }
         });
         
+        var handValue = valueMap.HAND.HIGHCARD;
+        
         if (pairCount === 1 && hasSet) {
             // full house
-            return valueMap.HAND.FULLHOUSE;
+            handValue = valueMap.HAND.FULLHOUSE;
         }
         
         if (pairCount === 2) {
             // two pair
-            return valueMap.HAND.TWO;
+            handValue = valueMap.HAND.TWO;
         }
         
         if (pairCount === 1) {
             // pair
-            return valueMap.HAND.PAIR;
+            handValue = valueMap.HAND.PAIR;
         }
         
         if (hasSet) {
-            return valueMap.HAND.THREEOFAKIND;
+            handValue = valueMap.HAND.THREEOFAKIND;
         }
         
         if (hasQuads) {
-            return valueMap.HAND.QUADS;
+            handValue = valueMap.HAND.QUADS;
         }
         
         holeCards.forEach(function (card) {
@@ -79,9 +90,9 @@ module.exports = {
         });
         
         if (isQueenOrHigher) {
-            return valueMap.HAND.HASQUEENORHIGHER;
+            handValue = valueMap.HAND.HASQUEENORHIGHER;
         }
         
-        return valueMap.HAND.HIGHCARD;
+        return handValue * roundMultiplier;
     }
 };

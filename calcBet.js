@@ -1,5 +1,5 @@
 var TAG = require('./TAG');
-var valueMap = require('./valueMap');
+var valueMap = require('./valuemap.js');
 var bluff = require('./bluff');
 var handEvaluator = require('./handEvaluator');
 

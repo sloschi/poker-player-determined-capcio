@@ -2,7 +2,7 @@
 module.exports = {
 
     HAND: {
-        HIGHCARD: 0.1,
+        HIGHCARD: 0,
         HASQUEENORHIGHER: 0.0875,
         PAIR: 0.125,
         TWO: 0.27,

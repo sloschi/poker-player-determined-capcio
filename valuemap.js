@@ -15,6 +15,13 @@ module.exports = {
         ROYALFLUSH: 1
     },
 
+    ROUNDMULTIPLIER: {
+        PREFLOP: 4,
+        FLOP: 3,
+        TURN: 2,
+        RIVER: 1
+    },
+
     CARD: {
         2: 1,
         3: 2,

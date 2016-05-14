@@ -19,6 +19,20 @@ module.exports = function calculateBet(gameState) {
   var averageCardValue = cardValue / cards.length;
   console.log(TAG.Player, 'average card value', averageCardValue);
   var handValue = handEvaluator.evaluate(gameState);
-
-  return handValue >= valueMap.LIMITS.FOLD ? gameState.pot : 0;
+  if (handValue >= valueMap.LIMITS.YOLO) {
+    return gameState.players[gameState.in_action].stack;
+  }
+  else if (handValue >= valueMap.LIMITS.TRIBET) {
+    return gameState.current_buy_in + 3 * gameState.minimum_raise; 
+  }
+  else if(handValue >= valueMap.LIMITS.PLAY) {
+    return gameState.current_buy_in + gameState.minimum_raise;
+  }
+  else if (handValue >= valueMap.LIMITS.MEHPLAY) {
+    return gameState.current_buy_in;
+  } else if (handValue >= valueMap.LIMITS.FOLD && gameState.current_buy_in < gameState.big_blind * 3) {
+    return gameState.current_buy_in;
+  } else {
+    return 0;
+  }
 };
